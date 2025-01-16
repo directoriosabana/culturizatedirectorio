@@ -64,41 +64,90 @@ function closeNavbar() {
     sidebar.classList.remove('active'); // Oculta el navbar
     overlay.classList.remove('active'); // Oculta el fondo
 }
-
-// Get Elements
+// Obtener elementos del DOM
 const searchButton = document.getElementById('searchButton');
 const closeSearchModal = document.getElementById('closeSearchModal');
 const searchModal = document.getElementById('searchModal');
 const startSearchBtn = document.getElementById('startSearchBtn');
 const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
 
-// Open Search Modal
+// Lista de páginas donde buscar IDs (ajústala según la estructura de tu sitio)
+const pagesToSearch = [
+    'index.html',
+    'business/categories.html',
+    'categories/vestuario.html',
+    'categories/vestuario/ac-boutique.html',
+    'categories/vestuario/dulcey-sport.html',
+    'categories/vestuario/templo-precios-bajos.html'
+];
+
+// Función para abrir el modal de búsqueda
 searchButton.addEventListener('click', () => {
     searchModal.style.display = 'flex';
 });
 
-// Close Search Modal
+// Función para cerrar el modal de búsqueda
 closeSearchModal.addEventListener('click', () => {
     searchModal.style.display = 'none';
 });
 
-// Close Modal on Outside Click
+// Cerrar el modal si se hace clic fuera del contenido
 window.addEventListener('click', (e) => {
     if (e.target === searchModal) {
         searchModal.style.display = 'none';
     }
 });
 
-// Handle Search Button Click
+// Normalizar IDs (eliminar espacios y convertir a minúsculas)
+function normalizeId(id) {
+    return id.toLowerCase().replace(/\s+/g, '');
+}
+
+// Buscar ID en múltiples páginas
+async function searchIdInPages(query) {
+    searchResults.innerHTML = "<p>Buscando...</p>";
+    const normalizedQuery = normalizeId(query);
+    let results = [];
+
+    for (const page of pagesToSearch) {
+        try {
+            const response = await fetch(page);
+            if (!response.ok) continue; // Si la página no carga, saltar
+
+            const htmlText = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+
+            // Buscar todos los elementos con un ID en la página
+            const allElements = doc.querySelectorAll('[id]');
+            allElements.forEach(el => {
+                if (normalizeId(el.id) === normalizedQuery) {
+                    results.push(`<li><a href="${page}">${page}</a> - ID encontrado: <strong>${el.id}</strong></li>`);
+                }
+            });
+
+        } catch (error) {
+            console.error(`Error al cargar ${page}:`, error);
+        }
+    }
+
+    // Mostrar los resultados en el modal
+    searchResults.innerHTML = results.length > 0 
+        ? `<ul>${results.join('')}</ul>` 
+        : "<p>No se encontró el ID en ninguna página.</p>";
+}
+
+// Evento al hacer clic en "Iniciar Búsqueda"
 startSearchBtn.addEventListener('click', () => {
     const query = searchInput.value.trim();
     if (query) {
-        alert(`Buscando: ${query}`);
-        // Aquí puedes agregar lógica adicional para manejar la búsqueda
+        searchIdInPages(query);
     } else {
         alert('Por favor, ingresa un término de búsqueda.');
     }
 });
+
 
 let deferredPrompt;
 

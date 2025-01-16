@@ -7,7 +7,7 @@
     <title>Directorio Empresarial | AC Boutique</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="../../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../assets/images/favicon.png" type="image/x-icon">
 
     <!-- CSS Frameworks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
 <body>
     <!-- Header -->
     <header>
-        <h1>AC Boutique</h1>
+        <h1 id= "ac boutique">AC Boutique</h1>
         <b>Vestuario</b>
     </header>
 
@@ -53,7 +53,7 @@
                     <div class="card mb-4 shadow-sm">
                         <img src="../../../assets/images/categories/vestuario/ac.webp" class="card-img-top" alt="ac" id="boutique ac">
                         <div class="card-body">
-                            <h5 class="card-title">Boutique AC</h5>
+                            <h5 class="card-title">Ropa, Calzado & Accesorios</h5>
                             <p class="card-text">Prendas exclusivas y sofisticadas para ocasiones especiales y eventos formales.</p>
                             <a class="btn btn-call" href="tel:+573166894213">📞 Llamar</a>
                             <a href="https://wa.me/573166894213" class="btn btn-whatsapp">Whatsapp</a>
@@ -96,13 +96,14 @@
     </a>
 </div>
 
-<!-- Search Modal -->
+<!-- Modal de Búsqueda -->
 <div id="searchModal" class="search-modal">
     <div class="search-modal-content">
         <button id="closeSearchModal" class="close-btn">&times;</button>
         <h2>Buscar</h2>
         <input type="text" id="searchInput" class="search-input" placeholder="Escribe aquí tu búsqueda...">
         <button id="startSearchBtn" class="start-search-btn">Iniciar Búsqueda</button>
+        <div id="searchResults" class="search-results"></div> <!-- Sección para mostrar resultados -->
     </div>
 </div>
 

@@ -7,7 +7,7 @@
     <title>Directorio Empresarial</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon">
 
     <!-- CSS Frameworks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -65,7 +65,7 @@
                         <div class="card-body">
                             <h5 class="card-title">El Templo de los Precios Bajos</h5>
                             <p class="card-text">Ropa casual y moderna para todas las edades, con las últimas tendencias en la ciudad.</p>
-                            <a href="../../categories/vestuario/templo-precios-bajos.html" class="btn btn-primary">Ver más</a>
+                            <a href="../../business/categories/vestuario/templo-precios-bajos.html" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -88,31 +88,32 @@
         <p>&copy; 2025 Directorio Empresarial. Todos los derechos reservados.</p>
     </footer>
 
-    <div class="floating-panel">
+    <!-- Módulo flotante con botones -->
+<div class="floating-panel">
     <a id="searchButton" class="btn-panel" title="Búsqueda">
         <i class="fas fa-search"></i>
     </a>
     <a class="btn-center" href="../../index.html" title="Inicio">
         <i class="fas fa-home"></i>
     </a>
-    <a class="btn-panel" href="../../../business/categories.html" title="Categorías">
+    <a class="btn-panel" href="../../business/categories.html" title="Categorías">
         <i class="fas fa-list"></i>
     </a>
 </div>
 
-<!-- Search Modal -->
+<!-- Modal de Búsqueda -->
 <div id="searchModal" class="search-modal">
     <div class="search-modal-content">
         <button id="closeSearchModal" class="close-btn">&times;</button>
         <h2>Buscar</h2>
         <input type="text" id="searchInput" class="search-input" placeholder="Escribe aquí tu búsqueda...">
         <button id="startSearchBtn" class="start-search-btn">Iniciar Búsqueda</button>
+        <div id="searchResults" class="search-results"></div> <!-- Sección para mostrar resultados -->
     </div>
 </div>
 
 
-
-    <!-- JS Frameworks -->
+ <!-- JS Frameworks -->
     <script src="../../scripts/custom.js" defer></script>
 </body>
 </html>
