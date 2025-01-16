@@ -403,6 +403,8 @@ body {
 
 /* Hero Section */
 section.bg-primary {
+    margin: 10px;
+    border-radius: 50px;
     margin-top: 20px;
     background: linear-gradient(135deg, #33a1fd, #6c63ff);
     padding: 50px 20px;
