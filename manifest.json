@@ -1,6 +1,6 @@
 {
-    "short_name": "directorio",
-    "name": "Directorio Empresarial",
+    "short_name": "CulturizateSDT",
+    "name": "Culturizate Directorio Empresarial",
     "icons": [
         {
             "src": "favicon.png",
@@ -13,7 +13,7 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "directorio/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#6c63ff"
