@@ -149,84 +149,41 @@ startSearchBtn.addEventListener('click', () => {
 });
 
 
+
 let deferredPrompt;
 
-        // Capture the "beforeinstallprompt" event
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the default mini-infobar
-            e.preventDefault();
-            deferredPrompt = e;
+// Selecciona el botón que activará la instalación manualmente
+const installBtn = document.getElementById('installBtn');
 
-            // Show the modal
-            const overlay = document.getElementById('overlay');
-            const addToHomeModal = document.getElementById('addToHomeModal');
-            overlay.style.display = 'block';
-            addToHomeModal.style.display = 'block';
-        });
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    installBtn.style.display = 'block'; // Muestra el botón si es posible instalar
+});
 
-        // Handle "Add" button click
-        document.getElementById('installButton').addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt(); // Show the prompt
-                const { outcome } = await deferredPrompt.userChoice; // Wait for the user's response
-                if (outcome === 'accepted') {
-                    console.log('App installed');
-                } else {
-                    console.log('App installation dismissed');
-                }
-                deferredPrompt = null; // Reset the prompt
-            }
+// Evento al hacer clic en el botón de instalación
+installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
 
-            closeModal(); // Close the modal
-        });
-
-        // Handle "Close" button click
-        document.getElementById('closeModal').addEventListener('click', closeModal);
-
-        // Function to close the modal
-        function closeModal() {
-            const overlay = document.getElementById('overlay');
-            const addToHomeModal = document.getElementById('addToHomeModal');
-            overlay.style.display = 'none';
-            addToHomeModal.style.display = 'none';
+        const result = await deferredPrompt.userChoice;
+        if (result.outcome === 'accepted') {
+            console.log('Usuario instaló la PWA');
+        } else {
+            console.log('Usuario canceló la instalación');
         }
 
+        deferredPrompt = null; // Reinicia la variable
+    }
+});
 
-// 3. Modal functionality for card buttons
-const setupModals = () => {
-    const buttons = document.querySelectorAll('.btn-primary');
-    buttons.forEach(button => {
-        button.addEventListener('click', event => {
-            event.preventDefault();
-            const modalContent = `
-                <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="infoModalLabel">Información de la Empresa</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                Más detalles sobre la empresa serán mostrados aquí.
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', modalContent);
-            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
-            modal.show();
 
-            modal._element.addEventListener('hidden.bs.modal', () => {
-                modal._element.remove();
-            });
-        });
-    });
-};
 
+
+
+function setupModals() {
+    console.log("Modales listos");
+}
 // Initialize all functions
 smoothScroll();
 setupModals();
