@@ -425,7 +425,7 @@ section.bg-primary p {
 section.bg-primary a {
     padding: 10px 20px;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
