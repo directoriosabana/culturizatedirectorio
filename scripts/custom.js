@@ -80,7 +80,7 @@ if (searchModal) {
 
 // Lista de páginas donde buscar IDs
 const pagesToSearch = [
-    '/index.html',
+    'index.html',
     'business/categories/vestuario.html',
 ];
 
