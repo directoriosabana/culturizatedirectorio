@@ -38,7 +38,7 @@ header p {
     top: 0;
     left: 0; /* Anclado al lado izquierdo */
     height: 100%; /* Ocupa toda la altura del viewport */
-    width: 180px; /* Ancho del menú */
+    width: 200px; /* Ancho del menú */
     background-color: #2a2933; /* Fondo blanco */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
     display: flex;
@@ -293,12 +293,12 @@ header p {
     left: 0; /* Empieza desde el lado izquierdo */
     width: 100%; /* Ocupa todo el ancho del navegador */
     height: 60px; /* Altura del panel */
-    background-color: #2a2933; /* Color de fondo */
+    background-color: #f9f9f9; /* Color de fondo */
     display: flex; /* Flexbox para alinear contenido */
     align-items: center; /* Centra verticalmente el contenido */
     padding: 0 15px; /* Espaciado interno */
     z-index: 1100; /* Encima de otros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0); /* Sombra para destacar */
 }
 
 .menu-img {
@@ -309,8 +309,8 @@ header p {
 
 /* Hamburger Button Inside the Panel */
 .hamburger {
-    background: #fff; /* Fondo blanco */
-    color: #6c63ff; /* Color del ícono */
+    background: #24252aa1; /* Fondo blanco */
+    color: #f9f9f9; /* Color del ícono */
     border: none;
     padding: 10px 15px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
@@ -342,7 +342,7 @@ body {
 @media (max-width: 576px) {
     .hamburger {
         padding: 8px 12px; /* Tamaño reducido */
-        font-size: 10px; /* Ícono más pequeño */
+        font-size: 18px; /* Ícono más pequeño */
     }
 }
 
@@ -526,9 +526,9 @@ section.bg-primary a:hover {
     justify-content: center;
     align-items: center;
     gap: 10px; /* Separación entre botones */
-    background-color: #2a2933; /* Fondo blanco */
+    background-color: #f9f9f9; /* Fondo blanco */
     padding: 10px 20px; /* Espaciado interno del panel */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* Sombra */
     z-index: 1000; /* Encima de otros elementos */
 }
 
