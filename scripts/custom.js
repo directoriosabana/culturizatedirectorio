@@ -64,6 +64,7 @@ function closeNavbar() {
     sidebar.classList.remove('active'); // Oculta el navbar
     overlay.classList.remove('active'); // Oculta el fondo
 }
+
 // Obtener elementos del DOM
 const searchButton = document.getElementById('searchButton');
 const closeSearchModal = document.getElementById('closeSearchModal');
@@ -72,10 +73,15 @@ const startSearchBtn = document.getElementById('startSearchBtn');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
+// Asegurar que el modal esté oculto al cargar la página
+if (searchModal) {
+    searchModal.style.display = 'none';
+}
+
 // Lista de páginas donde buscar IDs
 const pagesToSearch = [
     '/index.html',
-    '/business/categories/vestuario.html',
+    'business/categories/vestuario.html',
 ];
 
 // Verificar si los elementos existen antes de añadir eventos
@@ -101,7 +107,7 @@ function normalizeId(id) {
     return id ? id.toLowerCase().replace(/\s+/g, '') : '';
 }
 
-// Buscar ID en múltiples páginas con mejor presentación
+// Buscar ID en múltiples páginas con coincidencias parciales y mejor presentación
 async function searchIdInPages(query) {
     if (!searchResults) return;
     
@@ -124,17 +130,17 @@ async function searchIdInPages(query) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlText, 'text/html');
 
-            // Buscar todos los h1 con atributo id
-            const allElements = doc.querySelectorAll('h5[id]');
-            console.log(`🔍 Encontrados ${allElements.length} <h5> con ID en ${page}`);
+            // Buscar todos los elementos con ID
+            const allElements = doc.querySelectorAll('[id]');
+            console.log(`🔍 Encontrados ${allElements.length} elementos`);
 
             allElements.forEach(el => {
-                if (normalizeId(el.id) === normalizedQuery) {
-                    console.log(`✅ Coincidencia encontrada en ${page}: ${el.id}`);
+                if (normalizeId(el.id).includes(normalizedQuery)) { // 🔥 Ahora busca coincidencias parciales
+                    console.log(`✅ Coincidencia encontrada`);
                     results.push(`
                         <div class="result-item">
-                            <a href="${page}" class="result-link">
-                                <strong>${el.id.toUpperCase()}</strong> encontrado</span>
+                            <a href="${page}#${el.id}" class="result-link" onclick="closeSearchModalFunction()">
+                                <strong>${el.id.toUpperCase()}</strong> encontrado
                             </a>
                         </div>
                     `);
@@ -151,7 +157,14 @@ async function searchIdInPages(query) {
         ? results.join('') 
         : "<p>❌ No se encontró ningún resultado.</p>";
 }
-    
+
+// Función para cerrar el modal al hacer clic en un resultado
+function closeSearchModalFunction() {
+    if (searchModal) {
+        searchModal.style.display = 'none';
+    }
+}
+
 // Evento al hacer clic en "Iniciar Búsqueda"
 if (startSearchBtn && searchInput) {
     startSearchBtn.addEventListener('click', () => {
@@ -163,7 +176,6 @@ if (startSearchBtn && searchInput) {
         }
     });
 }
-
 
 
 let deferredPrompt;

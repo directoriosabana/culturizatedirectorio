@@ -101,43 +101,12 @@ header p {
 #searchResults {
     background: white;
     padding: 20px;
-    width: 80%;
+    width: 100%;
     max-width: 500px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
-
-/* Estilo de cada resultado */
-.result-item {
-    background: #f8f9fa;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-/* Cambio de color al pasar el mouse */
-.result-item:hover {
-    background: #e2e6ea;
-}
-
-/* Estilos del enlace */
-.result-link {
-    margin: 20px;
-    text-decoration: none;
-    color: #007bff;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Página en la que se encontró */
-.result-page {
-    color: #6c757d;
-    font-weight: normal;
-    font-size: 14px;
-}
-
 
 .search-modal-content {
     background-color: white;
