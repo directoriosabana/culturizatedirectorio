@@ -147,6 +147,7 @@ header p {
 
 /* Category Card */
         .category-card {
+            margin: 20px;
             position: relative;
             height: 250px;
             border-radius: 10px;
@@ -187,6 +188,7 @@ header p {
 
         /* Card Text */
         .category-card .card-text {
+            text-align: center;
             position: absolute;
             bottom: 10px;
             left: 50%;
