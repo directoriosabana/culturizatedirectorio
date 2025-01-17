@@ -10,6 +10,8 @@ body {
 
 /* Header */
 header {
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
     background: linear-gradient(135deg, #6c63ff, #33a1fd);
     color: white;
     padding: 20px 0;
@@ -293,7 +295,7 @@ header p {
     left: 0; /* Empieza desde el lado izquierdo */
     width: 100%; /* Ocupa todo el ancho del navegador */
     height: 60px; /* Altura del panel */
-    background-color: #f9f9f9; /* Color de fondo */
+    background: linear-gradient(27deg, #6c63ff, #33a1fd); /* Color de fondo */
     display: flex; /* Flexbox para alinear contenido */
     align-items: center; /* Centra verticalmente el contenido */
     padding: 0 15px; /* Espaciado interno */
