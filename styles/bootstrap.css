@@ -199,6 +199,28 @@ header p {
             z-index: 3;
         }
 
+ /* Facebbok video  */       
+
+.facebook-video {
+    padding: 1rem;
+    place-items: center;
+}
+
+.facebook-video p {
+    font-size: larger;
+    text-align: center;
+    padding: 10px;
+}
+
+.facebook-video h6 {
+    color: #6c63ff;
+    margin: 10px;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
 /* Mostrar el overlay */
 .overlay.active {
     visibility: visible; /* Hacer visible el fondo */
