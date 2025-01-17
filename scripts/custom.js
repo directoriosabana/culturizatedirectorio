@@ -72,81 +72,97 @@ const startSearchBtn = document.getElementById('startSearchBtn');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
-// Lista de páginas donde buscar IDs (ajústala según la estructura de tu sitio)
+// Lista de páginas donde buscar IDs
 const pagesToSearch = [
-    'index.html',
-    'business/categories.html',
-    'categories/vestuario.html',
-    'categories/vestuario/ac-boutique.html',
-    'categories/vestuario/dulcey-sport.html',
-    'categories/vestuario/templo-precios-bajos.html'
+    '/index.html',
+    '/business/categories/vestuario.html',
 ];
 
-// Función para abrir el modal de búsqueda
-searchButton.addEventListener('click', () => {
-    searchModal.style.display = 'flex';
-});
+// Verificar si los elementos existen antes de añadir eventos
+if (searchButton && searchModal) {
+    searchButton.addEventListener('click', () => {
+        searchModal.style.display = 'flex';
+    });
 
-// Función para cerrar el modal de búsqueda
-closeSearchModal.addEventListener('click', () => {
-    searchModal.style.display = 'none';
-});
-
-// Cerrar el modal si se hace clic fuera del contenido
-window.addEventListener('click', (e) => {
-    if (e.target === searchModal) {
+    closeSearchModal.addEventListener('click', () => {
         searchModal.style.display = 'none';
-    }
-});
+    });
+
+    // Cerrar el modal si se hace clic fuera del contenido
+    window.addEventListener('click', (e) => {
+        if (e.target === searchModal) {
+            searchModal.style.display = 'none';
+        }
+    });
+}
 
 // Normalizar IDs (eliminar espacios y convertir a minúsculas)
 function normalizeId(id) {
-    return id.toLowerCase().replace(/\s+/g, '');
+    return id ? id.toLowerCase().replace(/\s+/g, '') : '';
 }
 
-// Buscar ID en múltiples páginas
+// Buscar ID en múltiples páginas con mejor presentación
 async function searchIdInPages(query) {
-    searchResults.innerHTML = "<p>Buscando...</p>";
+    if (!searchResults) return;
+    
+    searchResults.innerHTML = "<p>🔍 Buscando...</p>";
     const normalizedQuery = normalizeId(query);
     let results = [];
 
+    console.log("🔎 Iniciando búsqueda de:", normalizedQuery);
+
     for (const page of pagesToSearch) {
         try {
+            console.log(`📄 Buscando en: ${page}...`);
             const response = await fetch(page);
-            if (!response.ok) continue; // Si la página no carga, saltar
+            if (!response.ok) {
+                console.warn(`⚠️ No se pudo cargar ${page}`);
+                continue; // Si la página no carga, saltar
+            }
 
             const htmlText = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlText, 'text/html');
 
-            // Buscar todos los elementos con un ID en la página
-            const allElements = doc.querySelectorAll('[id]');
+            // Buscar todos los h1 con atributo id
+            const allElements = doc.querySelectorAll('h5[id]');
+            console.log(`🔍 Encontrados ${allElements.length} <h5> con ID en ${page}`);
+
             allElements.forEach(el => {
                 if (normalizeId(el.id) === normalizedQuery) {
-                    results.push(`<li><a href="${page}">${page}</a> - ID encontrado: <strong>${el.id}</strong></li>`);
+                    console.log(`✅ Coincidencia encontrada en ${page}: ${el.id}`);
+                    results.push(`
+                        <div class="result-item">
+                            <a href="${page}" class="result-link">
+                                <strong>${el.id.toUpperCase()}</strong> encontrado</span>
+                            </a>
+                        </div>
+                    `);
                 }
             });
 
         } catch (error) {
-            console.error(`Error al cargar ${page}:`, error);
+            console.error(`❌ Error al cargar ${page}:`, error);
         }
     }
 
-    // Mostrar los resultados en el modal
+    // Mostrar los resultados en el modal con mejor diseño
     searchResults.innerHTML = results.length > 0 
-        ? `<ul>${results.join('')}</ul>` 
-        : "<p>No se encontró el ID en ninguna página.</p>";
+        ? results.join('') 
+        : "<p>❌ No se encontró ningún resultado.</p>";
 }
-
+    
 // Evento al hacer clic en "Iniciar Búsqueda"
-startSearchBtn.addEventListener('click', () => {
-    const query = searchInput.value.trim();
-    if (query) {
-        searchIdInPages(query);
-    } else {
-        alert('Por favor, ingresa un término de búsqueda.');
-    }
-});
+if (startSearchBtn && searchInput) {
+    startSearchBtn.addEventListener('click', () => {
+        const query = searchInput.value.trim();
+        if (query) {
+            searchIdInPages(query);
+        } else {
+            alert('Por favor, ingresa un término de búsqueda.');
+        }
+    });
+}
 
 
 
