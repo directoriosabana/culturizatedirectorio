@@ -82,6 +82,7 @@ if (searchModal) {
 const pagesToSearch = [
     'index.html',
     'business/categories/vestuario.html',
+    'business/categories.html',
 ];
 
 // Verificar si los elementos existen antes de añadir eventos
