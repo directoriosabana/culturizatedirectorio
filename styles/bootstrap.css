@@ -8,6 +8,38 @@ body {
     padding: 0;
 }
 
+/* Carousel */
+.splide__slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.splide__slide img {
+  margin: 20px;
+  width: 90%;
+  height: auto;
+  display: block;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.splide__slide.is-active .slide-content {
+  opacity: 1;
+}
+
+
 /* Header */
 header {
     border-bottom-right-radius: 30px;
@@ -697,7 +729,7 @@ section.bg-primary a:hover {
 }
 .map-container h2 {
     margin-top: 0;
-    color: #333;
+    color: ##4b88fe;
 }
 #map {
     width: 100%;
