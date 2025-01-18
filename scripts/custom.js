@@ -35,6 +35,26 @@ const smoothScroll = () => {
     });
 };
 
+// Carousel
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#image-carousel', {
+      type       : 'loop',
+      perPage    : 3,
+      focus      : 'center',
+      gap        : '1rem',
+      autoplay   : true,
+      interval   : 3000,
+      breakpoints: {
+        768: {
+          perPage: 1,
+        },
+        1024: {
+          perPage: 2,
+        },
+      },
+    }).mount();
+  });
+
 // Toggle the visibility of the navbar
 function toggleNavbar() {
     const sidebar = document.getElementById('sidebar');
@@ -82,6 +102,7 @@ if (searchModal) {
 const pagesToSearch = [
     'index.html',
     'business/categories/vestuario.html',
+    'business/categories.html',
 ];
 
 // Verificar si los elementos existen antes de añadir eventos
