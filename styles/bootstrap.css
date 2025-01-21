@@ -8,15 +8,30 @@ body {
     padding: 0;
 }
 
+
 /* Header */
 header {
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    background: linear-gradient(1deg, #6c63ff, #33a1fd);
+    background: linear-gradient(0deg, #fddc0b, #088a32);
     color: white;
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Horizontal Panel */
+.horizontal-panel {
+    position: fixed; /* Fijo en la parte superior */
+    top: 0; /* Anclado al borde superior */
+    left: 0; /* Empieza desde el lado izquierdo */
+    width: 100%; /* Ocupa todo el ancho del navegador */
+    height: 60px; /* Altura del panel */
+    background: #088a32; /* Color de fondo */
+    display: flex; /* Flexbox para alinear contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 0 15px; /* Espaciado interno */
+    z-index: 1100; /* Encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0); /* Sombra para destacar */
 }
 
 header h1 {
@@ -143,7 +158,7 @@ header p {
 }
 
 .start-search-btn {
-    background-color: #6c63ff;
+    background-color: #088a32;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -154,7 +169,7 @@ header p {
 }
 
 .start-search-btn:hover {
-    background-color: #33a1fd;
+    background-color: #088a328c;
 }
 
 /* Category Card */
@@ -224,15 +239,6 @@ header p {
     padding: 10px;
 }
 
-.facebook-video h6 {
-    color: #33a1fd;
-    margin: 10px;
-    font-size: smaller;
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 10px;
-}
-
 /* Mostrar el overlay */
 .overlay.active {
     visibility: visible; /* Hacer visible el fondo */
@@ -260,6 +266,7 @@ header p {
     text-decoration: none;
     padding: 10px 15px; /* Espaciado interno de los enlaces */
     border-radius: 5px; /* Bordes redondeados */
+    align-items: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 
 }
@@ -289,7 +296,7 @@ header p {
 }
 
 .nav-buttons .btn:hover {
-    background-color: #33a1fd; /* Cambia el color del fondo al pasar el mouse */
+    background-color: #088a328c; /* Cambia el color del fondo al pasar el mouse */
     transform: scale(1.05); /* Efecto de agrandamiento */
 }
 
@@ -297,20 +304,6 @@ header p {
 .nav-link:hover {
     background-color: #f1f1f1; /* Fondo al pasar el mouse */
     color: #6c63ff; /* Color del texto al pasar el mouse */
-}
-/* Horizontal Panel */
-.horizontal-panel {
-    position: fixed; /* Fijo en la parte superior */
-    top: 0; /* Anclado al borde superior */
-    left: 0; /* Empieza desde el lado izquierdo */
-    width: 100%; /* Ocupa todo el ancho del navegador */
-    height: 60px; /* Altura del panel */
-    background: linear-gradient(27deg, #33a1fd, #33a1fd); /* Color de fondo */
-    display: flex; /* Flexbox para alinear contenido */
-    align-items: center; /* Centra verticalmente el contenido */
-    padding: 0 15px; /* Espaciado interno */
-    z-index: 1100; /* Encima de otros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0); /* Sombra para destacar */
 }
 
 .menu-img {
@@ -321,7 +314,7 @@ header p {
 
 /* Hamburger Button Inside the Panel */
 .hamburger {
-    background: #24252aa1; /* Fondo blanco */
+    background: #0b6e2bd6; /* Fondo blanco */
     color: #f9f9f9; /* Color del ícono */
     border: none;
     padding: 10px 15px; /* Espaciado interno */
@@ -332,7 +325,7 @@ header p {
 }
 
 .hamburger:hover {
-    background-color: #33a1fd; /* Color de fondo al pasar el mouse */
+    background-color: #fddc0b9c; /* Color de fondo al pasar el mouse */
     transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
@@ -364,7 +357,7 @@ body {
     text-shadow: 1px 1px black;
     margin-top: 0.5rem;
     padding: 20px;
-    color: #33a1fd;
+    color: #fddc0b;
     text-align: center;
 }
 
@@ -437,64 +430,62 @@ body {
             z-index: 999;
         }
 
-/* Hero Section */
-section.bg-primary {
-    margin: 10px;
-    border-radius: 50px;
-    margin-top: 20px;
-    background: linear-gradient(135deg, #33a1fd, #6c63ff);
-    padding: 50px 20px;
-    color: white;
-    text-align: center;
-}
 
-section.bg-primary h2 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-section.bg-primary p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-section.bg-primary a {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-section.bg-primary a:hover {
-    background: white;
-    color: #6c63ff;
-}
 
 /* Carousel */
-/* Carousel Images Customization */
-.carousel-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px; /* Padding general para todo el contenido interno del carrusel */
-}
+#carousel-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 52vh;
+      background-color: #f5f5f5; /* Fondo suave */
+      overflow: hidden; /* Ocultar elementos fuera del área */
+    }
 
-.carousel-inner img {
-    width: 300px; /* Ancho fijo para las imágenes */
-    height: 300px; /* Alto fijo para las imágenes */
-    object-fit: cover; /* Recorte para mantener proporciones adecuadas */
-    margin: 10px; /* Separación entre imágenes */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en el borde */
-    border: 2px solid #ddd; /* Borde gris claro */
-}
+    .carousel {
+      display: flex;
+      position: relative;
+      width: 90%; /* Ancho relativo al contenedor */
+      perspective: 1000px; /* Perspectiva para un efecto más dinámico */
+    }
 
-.carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px; /* Espaciado interno para cada elemento */
-}
+    .carousel-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease, z-index 0.5s ease;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* Animación al pasar el cursor */
+    .carousel-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Posiciones de las tarjetas */
+    .carousel-item:nth-child(1) { transform: translate(-150%, -50%) scale(0.8); z-index: 1; }
+    .carousel-item:nth-child(2) { transform: translate(-50%, -50%) scale(0.8); z-index: 2; }
+    .carousel-item:nth-child(3) { transform: translate(50%, -50%) scale(1); z-index: 3; }
+
+
+
 
 /* Floating Panel */
 .floating-panel {
@@ -552,7 +543,7 @@ section.bg-primary a:hover {
     align-items: center;
     width: 50px; /* Tamaño del botón */
     height: 50px;
-    background-color: #6c63ff; /* Color de fondo */
+    background-color: #088a32; /* Color de fondo */
     color: white; /* Color del ícono */
     font-size: 1.2rem; /* Tamaño del ícono */
     border-radius: 50%; /* Botones circulares */
@@ -562,7 +553,7 @@ section.bg-primary a:hover {
 
 /* Hover Effects */
 .floating-panel a:hover {
-    background-color: #33a1fd; /* Cambia el color al pasar el mouse */
+    background-color: #088a328c; /* Cambia el color al pasar el mouse */
     transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
@@ -573,6 +564,21 @@ section.bg-primary a:hover {
     font-size: 1.5rem;
 }
 
+/* Texto debajo del botón */
+.btn-text {
+    font-size: 0.8rem; /* Tamaño del texto */
+    color: #088a32; /* Color del texto */
+    margin-top: 5px; /* Espaciado entre el botón y el texto */
+    font-weight: bold; /* Negrita para mejor visibilidad */
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /* Cards */
@@ -600,7 +606,7 @@ section.bg-primary a:hover {
 .card-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #6c63ff;
+    color: #088a32;
 }
 
 .card-text {
@@ -609,10 +615,32 @@ section.bg-primary a:hover {
 }
 
 .btn-primary {
-    background: #6c63ff;
+    background: #088a32;
     border: none;
     transition: background 0.3s ease;
 }
+
+.btn-carousel {
+    position: absolute;
+    bottom: 10px; /* Posición en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #088a32;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Asegurar que el botón esté sobre la imagen */
+}
+
+.btn-carousel:hover {
+    background: #066923;
+    transform: translateX(-50%) scale(1.1);
+}
+
 
 
 

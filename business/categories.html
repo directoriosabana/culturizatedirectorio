@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Directorio empresarial de Sabana de Torres, con un diseño moderno y dinámico.">
-    <title>Directorio Empresarial | Categorías</title>
+    <title>Directorio CulturizateSDT | Categorías</title>
     
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon"/>
@@ -20,7 +20,7 @@
     <!-- Header -->
     <header>
         <h1>Elige una Categoría</h1>
-        <h3>Directorio Empresarial</h3>
+        <h3>Directorio CulturizateSDT</h3>
     </header>
 
 <!-- Horizontal Panel -->
@@ -35,10 +35,10 @@
         <img src="../assets/images/logo.webp" class="menu-img" alt="CulturizateSDT">
     </div>
     <div class="nav-links">
-        <a class="nav-buttons btn" href="#">Inicio</a>
-        <a class="nav-buttons btn" href="#">Nosotros</a>
-        <a class="nav-buttons btn" href="#">Servicios</a>
-        <a class="nav-buttons btn" href="#">Contacto</a>
+        <a class="nav-buttons btn" href="https://www.facebook.com/CulturizateSDT" target="_blank">Facebook</a>
+        <a class="nav-buttons btn" href="../nosotros.html">Nosotros</a>
+        <a class="nav-buttons btn" href="../contacto.html">Contacto</a>
+        <a class="nav-buttons btn" href="../emergencia.html">Números de Emergencia</a>
     </div>
 </nav>
 
@@ -86,9 +86,6 @@
         <div class="category-card" style="background-image: url('../assets/images/categories/transporte.webp');" onclick="window.location.href='#';">
             <div class="card-text">Transporte</div>
         </div>
-        <div class="category-card" style="background-image: url('../assets/images/categories/construccion.webp');" onclick="window.location.href='#';">
-            <div class="card-text">Construcción</div>
-        </div>
         <div class="category-card" style="background-image: url('../assets/images/categories/deportes.webp');" onclick="window.location.href='#';">
             <div class="card-text">Deportes</div>
         </div>
@@ -106,16 +103,28 @@
     </footer>
 
     <div class="floating-panel">
-    <a id="searchButton" class="btn-panel" title="Búsqueda">
-        <i class="fas fa-search"></i>
-    </a>
-    <a class="btn-center" href="../index.html" title="Inicio">
-        <i class="fas fa-home"></i>
-    </a>
-    <a class="btn-panel" href="../business/categories.html" title="Categorías">
-        <i class="fas fa-list"></i>
-    </a>
+    <div class="btn-container">
+        <a id="searchButton" class="btn-panel" title="Búsqueda">
+            <i class="fas fa-search"></i>
+        </a>
+        <span class="btn-text">Búsqueda</span>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn-center" href="../index.html" title="Inicio">
+            <i class="fas fa-home"></i>
+        </a>
+        <span class="btn-text">Inicio</span>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn-panel" href="../business/categories.html" title="Categorías">
+            <i class="fas fa-list"></i>
+        </a>
+        <span class="btn-text">Categorías</span>
+    </div>
 </div>
+
 
 <!-- Modal de Búsqueda -->
 <div id="searchModal" class="search-modal">
