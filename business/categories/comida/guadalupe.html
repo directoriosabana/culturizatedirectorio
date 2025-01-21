@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Directorio empresarial de Sabana de Torres, con un diseño moderno y dinámico.">
+    <title>Directorio CulturizateSDT | Restaurante Guadalupe</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../../../assets/images/favicon.png" type="image/x-icon">
+
+    <!-- CSS Frameworks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../../../styles/bootstrap.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1 id= "ac boutique">Restaurante Guadalupe</h1>
+        <b>Comida</b>
+    </header>
+
+<!-- Horizontal Panel -->
+<div class="horizontal-panel">
+    <button class="hamburger" onclick="toggleNavbar()">&#9776;</button>
+</div>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar" id="sidebar">
+    <div class="navbar-brand">
+        <img src="../../../assets/images/logo.webp" class="menu-img" alt="CulturizateSDT">
+    </div>
+    <div class="nav-links">
+        <a class="nav-buttons btn" href="https://www.facebook.com/CulturizateSDT" target="_blank">Facebook</a>
+        <a class="nav-buttons btn" href="../../../nosotros.html">Nosotros</a>
+        <a class="nav-buttons btn" href="../../../contacto.html">Contacto</a>
+        <a class="nav-buttons btn" href="../../../emergencia.html">Números de Emergencia</a>
+    </div>
+</nav>
+
+<!-- Overlay Background -->
+<div id="overlay" class="overlay" onclick="closeNavbar()"></div>
+
+    <!-- Cards Section -->
+        <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 fade-in">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="../../../assets/images/categories/comida/guadalupe.webp" id="restaurante guadalupe" class="card-img-top" alt="Restaurante Guadalupe" >
+                        <div class="card-body">
+                            <h5 class="card-title">Almuerzos Caseros, Platos Especiales, Comida Rápida - Alquiler para Eventos.</h5>
+                            <p class="card-text">Venta de deliciosos desayunos y almuerzos platos a la carta y comida rápida.</p>
+                            <a class="btn btn-call" href="tel:+573158795175">📞 Llamar</a>
+                            <a href="https://wa.me/573158795175" class="btn btn-whatsapp">Whatsapp</a>
+                            <a href="https://www.restaurantlogin.com/api/fb/y_pb_w_x" target="_blank" class="btn btn-menu">Menú</a>
+
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map-container">            
+            <!-- Google Maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7913.315585927535!2d-73.49911831607!3d7.392188613834851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e42abbbeec6384f%3A0xd266dd99081afb6c!2sRestaurante%20Guadalupe!5e0!3m2!1ses-419!2sco!4v1737435492333!5m2!1ses-419!2sco" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+            <!-- Botón de Cómo Llegar -->
+            <a class="btn-map" href="https://www.google.com/maps/dir//Restaurante+Guadalupe,+Cra.+12+%2316+-+18,+Sabana+de+Torres,+Santander/@7.3921886,-73.4991183,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8e42abbbeec6384f:0xd266dd99081afb6c!2m2!1d-73.4936891!2d7.3925614?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+                📍 Cómo llegar
+            </a>
+        </div>
+
+    <div class="map-container">
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100063186281077&tabs=timeline&width=300&height=470&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="470" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    
+    </section>
+    
+
+        <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center">
+        <p>&copy; 2025 Directorio Empresarial. Todos los derechos reservados.</p>
+    </footer>
+
+    <div class="floating-panel">
+    <div class="btn-container">
+        <a id="searchButton" class="btn-panel" title="Búsqueda">
+            <i class="fas fa-search"></i>
+        </a>
+        <span class="btn-text">Búsqueda</span>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn-center" href="../../../index.html" title="Inicio">
+            <i class="fas fa-home"></i>
+        </a>
+        <span class="btn-text">Inicio</span>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn-panel" href="../../../business/categories.html" title="Categorías">
+            <i class="fas fa-list"></i>
+        </a>
+        <span class="btn-text">Categorías</span>
+    </div>
+</div>
+
+<!-- Modal de Búsqueda -->
+<div id="searchModal" class="search-modal">
+    <div class="search-modal-content">
+        <button id="closeSearchModal" class="close-btn">&times;</button>
+        <h2>Buscar</h2>
+        <input type="text" id="searchInput" class="search-input" placeholder="Escribe aquí tu búsqueda...">
+        <button id="startSearchBtn" class="start-search-btn">Iniciar Búsqueda</button>
+        <div id="searchResults" class="search-results"></div> <!-- Sección para mostrar resultados -->
+    </div>
+</div>
+
+
+
+    <!-- JS Frameworks -->
+    <script src="../../../scripts/custom.js" defer></script>
+    <script src="../../../scripts/service-worker.js" defer></script>
+</body>
+</html>

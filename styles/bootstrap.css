@@ -657,8 +657,16 @@ body {
     border: none;
     transition: background 0.3s ease;
 }
+
+.btn-menu {
+    color: white;
+    background: #ffcc00;
+    border: none;
+    transition: background 0.3s ease;
+
+}
 .btn-primary:hover {
-    background: #33a1fd;
+    background: #ffcc0087;
 }
 
 /* Animations */
