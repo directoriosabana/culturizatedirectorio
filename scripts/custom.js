@@ -106,8 +106,24 @@ if (searchModal) {
 
 // Lista de páginas donde buscar IDs
 const pagesToSearch = [
-    '../index.html',
-    '../business/categories/vestuario/lv-boutique.html',
+    'index.html',
+    '../business/categories/vestuario.html',
+    '../business/categories/comida.html',
+    '../business/categories/belleza.html',
+    '../business/categories/bebidas.html',
+    '../business/categories/gimnasio.html',
+    '../business/categories/drogueria.html',
+    '../business/categories/entretenimiento.html',
+    '../business/categories/mascotas.html',
+    '../business/categories/mecanica.html',
+    '../business/categories/inmobiliaria.html',
+    '../business/categories/hotel.html',
+    '../business/categories/tecnologia.html',
+    '../business/categories/transporte.html',
+    '../business/categories/deportes.html',
+    '../business/categories/ferreteria.html',
+    '../business/categories/profesionales.html',
+    '../business/categories/publicos.html',
     '../business/categories.html',
 ];
 
