@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const carouselItems = document.querySelectorAll(".carousel-item");
     let currentIndex = 0; // Índice de la tarjeta central
     const totalItems = carouselItems.length;
-    const animationDelay = 5000; // Tiempo en milisegundos entre cada movimiento
+    const animationDelay = 3000; // Tiempo en milisegundos entre cada movimiento
 
     // Función para actualizar las posiciones de las tarjetas
     function updateCarousel() {
@@ -106,10 +106,13 @@ if (searchModal) {
 
 // Lista de páginas donde buscar IDs
 const pagesToSearch = [
-    'index.html',
-    'business/categories/vestuario.html',
-    'business/categories.html',
+    '../index.html',
+    '../business/categories/vestuario/lv-boutique.html',
+    '../business/categories.html',
 ];
+
+// Añadir la página actual al array de páginas a buscar
+pagesToSearch.push(window.location.pathname); // Agrega la página actual al array
 
 // Verificar si los elementos existen antes de añadir eventos
 if (searchButton && searchModal) {
@@ -167,7 +170,7 @@ async function searchIdInPages(query) {
                     results.push(`
                         <div class="result-item">
                             <a href="${page}#${el.id}" class="result-link" onclick="closeSearchModalFunction()">
-                                <strong>${el.id.toUpperCase()}</strong> encontrado
+                                <strong>${el.id.toUpperCase()}</strong>
                             </a>
                         </div>
                     `);
