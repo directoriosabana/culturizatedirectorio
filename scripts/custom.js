@@ -15,103 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeInElements.forEach(element => observer.observe(element));
 });
 
-
-// 1Carousel
-document.addEventListener("DOMContentLoaded", function () {
-    const carouselItems = document.querySelectorAll(".carousel-item");
-    let currentIndex = 0; // Índice de la tarjeta central
-    const totalItems = carouselItems.length;
-    const animationDelay = 3000; // Tiempo entre movimientos automáticos (en milisegundos)
-    let autoSlideInterval;
-
-    // Función para actualizar posiciones del carrusel
-    function updateCarousel() {
-        carouselItems.forEach((item, index) => {
-            const offset = (index - currentIndex + totalItems) % totalItems; // Desplazamiento circular
-            item.style.transition = "transform 0.8s ease, z-index 0.8s ease"; // Animación
-            item.classList.remove("active"); // Quitar clase activa de todas las tarjetas
-
-            if (offset === 0) {
-                // Tarjeta central
-                item.style.transform = "translate(-50%, -50%) scale(1)";
-                item.style.zIndex = "3";
-                item.classList.add("active"); // Agregar clase activa a la tarjeta central
-            } else if (offset === 1 || offset === totalItems - 1) {
-                // Laterales visibles
-                const direction = offset === 1 ? 50 : -150;
-                item.style.transform = `translate(${direction}%, -50%) scale(0.8)`;
-                item.style.zIndex = "2";
-            } else if (offset === 2 || offset === totalItems - 2) {
-                // Laterales ocultas
-                const direction = offset === 2 ? 150 : -250;
-                item.style.transform = `translate(${direction}%, -50%) scale(0.8)`;
-                item.style.zIndex = "1";
-            } else {
-                // Ocultar tarjetas fuera del rango
-                item.style.transform = "translate(0, -50%) scale(0)";
-                item.style.zIndex = "0";
-            }
-        });
-    }
-
-    // Navegar hacia la izquierda
-    function moveLeft() {
-        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-        updateCarousel();
-        resetAutoSlide(); // Reinicia el temporizador automático
-    }
-
-    // Navegar hacia la derecha
-    function moveRight() {
-        currentIndex = (currentIndex + 1) % totalItems;
-        updateCarousel();
-        resetAutoSlide(); // Reinicia el temporizador automático
-    }
-
-    // Configurar botones
-    document.getElementById("carousel-prev").addEventListener("click", moveLeft);
-    document.getElementById("carousel-next").addEventListener("click", moveRight);
-
-    // Movimiento automático del carrusel
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(moveRight, animationDelay);
-    }
-
-    // Reiniciar el movimiento automático después de interacción manual
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval); // Detener temporizador existente
-        startAutoSlide(); // Iniciar nuevo temporizador
-    }
-
-    // Inicializar carrusel y movimiento automático
-    updateCarousel();
-    startAutoSlide();
-});
-
-// Toggle the visibility of the navbar
-function toggleNavbar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('active');
-}
-
-// Toggle the visibility of the navbar and overlay
-function toggleNavbar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    sidebar.classList.toggle('active'); // Activa/desactiva el navbar
-    overlay.classList.toggle('active'); // Activa/desactiva el fondo
-}
-
-// Close the navbar when clicking on the overlay
-function closeNavbar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    sidebar.classList.remove('active'); // Oculta el navbar
-    overlay.classList.remove('active'); // Oculta el fondo
-}
-
 // Obtener elementos del DOM
 const searchButton = document.getElementById('searchButton');
 const closeSearchModal = document.getElementById('closeSearchModal');
@@ -243,6 +146,103 @@ if (startSearchBtn && searchInput) {
     });
 }
 
+
+
+// 1Carousel
+document.addEventListener("DOMContentLoaded", function () {
+    const carouselItems = document.querySelectorAll(".carousel-item");
+    let currentIndex = 0; // Índice de la tarjeta central
+    const totalItems = carouselItems.length;
+    const animationDelay = 3000; // Tiempo entre movimientos automáticos (en milisegundos)
+    let autoSlideInterval;
+
+    // Función para actualizar posiciones del carrusel
+    function updateCarousel() {
+        carouselItems.forEach((item, index) => {
+            const offset = (index - currentIndex + totalItems) % totalItems; // Desplazamiento circular
+            item.style.transition = "transform 0.8s ease, z-index 0.8s ease"; // Animación
+            item.classList.remove("active"); // Quitar clase activa de todas las tarjetas
+
+            if (offset === 0) {
+                // Tarjeta central
+                item.style.transform = "translate(-50%, -50%) scale(1)";
+                item.style.zIndex = "3";
+                item.classList.add("active"); // Agregar clase activa a la tarjeta central
+            } else if (offset === 1 || offset === totalItems - 1) {
+                // Laterales visibles
+                const direction = offset === 1 ? 50 : -150;
+                item.style.transform = `translate(${direction}%, -50%) scale(0.8)`;
+                item.style.zIndex = "2";
+            } else if (offset === 2 || offset === totalItems - 2) {
+                // Laterales ocultas
+                const direction = offset === 2 ? 150 : -250;
+                item.style.transform = `translate(${direction}%, -50%) scale(0.8)`;
+                item.style.zIndex = "1";
+            } else {
+                // Ocultar tarjetas fuera del rango
+                item.style.transform = "translate(0, -50%) scale(0)";
+                item.style.zIndex = "0";
+            }
+        });
+    }
+
+    // Navegar hacia la izquierda
+    function moveLeft() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+        resetAutoSlide(); // Reinicia el temporizador automático
+    }
+
+    // Navegar hacia la derecha
+    function moveRight() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+        resetAutoSlide(); // Reinicia el temporizador automático
+    }
+
+    // Configurar botones
+    document.getElementById("carousel-prev").addEventListener("click", moveLeft);
+    document.getElementById("carousel-next").addEventListener("click", moveRight);
+
+    // Movimiento automático del carrusel
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(moveRight, animationDelay);
+    }
+
+    // Reiniciar el movimiento automático después de interacción manual
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval); // Detener temporizador existente
+        startAutoSlide(); // Iniciar nuevo temporizador
+    }
+
+    // Inicializar carrusel y movimiento automático
+    updateCarousel();
+    startAutoSlide();
+});
+
+// Toggle the visibility of the navbar
+function toggleNavbar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+}
+
+// Toggle the visibility of the navbar and overlay
+function toggleNavbar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    sidebar.classList.toggle('active'); // Activa/desactiva el navbar
+    overlay.classList.toggle('active'); // Activa/desactiva el fondo
+}
+
+// Close the navbar when clicking on the overlay
+function closeNavbar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    sidebar.classList.remove('active'); // Oculta el navbar
+    overlay.classList.remove('active'); // Oculta el fondo
+}
 
 let deferredPrompt;
 

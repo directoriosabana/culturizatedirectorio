@@ -49,55 +49,7 @@ header p {
     margin: 10px 0 0;
 }
 
-/* Scrollable Navigation Bar */
-.navbar {
-    position: fixed; /* Fijo en la pantalla */
-    top: 0;
-    left: 0; /* Anclado al lado izquierdo */
-    height: 100%; /* Ocupa toda la altura del viewport */
-    width: 200px; /* Ancho del menú */
-    background-color: #2a2933; /* Fondo blanco */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-    display: flex;
-    flex-direction: column; /* Elementos apilados verticalmente */
-    justify-content: space-between; /* Espaciado entre secciones */
-    overflow-y: auto; /* Habilita el scroll vertical */
-    padding: 20px 10px; /* Espaciado interno */
-    z-index: 1000; /* Asegura que esté encima de otros elementos */
-    transform: translateX(-100%); /* Inicialmente oculto fuera de la pantalla */
-    transition: transform 0.3s ease; /* Transición suave */
 
-}
-
-/* Mostrar la barra de navegación */
-.navbar.active {
-    transform: translateX(0); /* Desliza el menú dentro de la pantalla */
-}
-
-/* Overlay Background */
-.overlay {
-    position: fixed; /* Cubre toda la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100%; /* Ocupa toda la altura */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    visibility: hidden; /* No visible por defecto */
-    opacity: 0; /* Totalmente transparente */
-    transition: visibility 0.3s ease, opacity 0.3s ease; /* Transición suave */
-    z-index: 999; /* Debajo del navbar */
-}
-
-/* Floating Panel Styles (No changes) */
-.floating-panel {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-    z-index: 1000;
-}
 
 /* Contenedor del modal */
 #searchModal {
@@ -172,6 +124,56 @@ header p {
     background-color: #088a328c;
 }
 
+
+/* Scrollable Navigation Bar */
+.navbar {
+    position: fixed; /* Fijo en la pantalla */
+    top: 0;
+    left: 0; /* Anclado al lado izquierdo */
+    height: 100%; /* Ocupa toda la altura del viewport */
+    width: 200px; /* Ancho del menú */
+    background-color: #2a2933; /* Fondo blanco */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    display: flex;
+    flex-direction: column; /* Elementos apilados verticalmente */
+    justify-content: space-between; /* Espaciado entre secciones */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    padding: 20px 10px; /* Espaciado interno */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    transform: translateX(-100%); /* Inicialmente oculto fuera de la pantalla */
+    transition: transform 0.3s ease; /* Transición suave */
+
+}
+
+/* Mostrar la barra de navegación */
+.navbar.active {
+    transform: translateX(0); /* Desliza el menú dentro de la pantalla */
+}
+
+/* Overlay Background */
+.overlay {
+    position: fixed; /* Cubre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    visibility: hidden; /* No visible por defecto */
+    opacity: 0; /* Totalmente transparente */
+    transition: visibility 0.3s ease, opacity 0.3s ease; /* Transición suave */
+    z-index: 999; /* Debajo del navbar */
+}
+
+/* Floating Panel Styles (No changes) */
+.floating-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
 /* Category Card */
         .category-card {
             margin: 20px;
@@ -335,8 +337,6 @@ body {
 }
 
 
-
-/
 }
 
 .hamburger:hover {
