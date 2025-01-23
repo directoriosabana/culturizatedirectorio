@@ -13,22 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     fadeInElements.forEach(element => observer.observe(element));
-});// Carousel
+});
+
+
+// 1Carousel
 document.addEventListener("DOMContentLoaded", function () {
     const carouselItems = document.querySelectorAll(".carousel-item");
     let currentIndex = 0; // Índice de la tarjeta central
     const totalItems = carouselItems.length;
-    const animationDelay = 3000; // Tiempo en milisegundos entre cada movimiento
+    const animationDelay = 3000; // Tiempo entre movimientos automáticos (en milisegundos)
+    let autoSlideInterval;
 
-    // Función para actualizar las posiciones de las tarjetas
+    // Función para actualizar posiciones del carrusel
     function updateCarousel() {
         carouselItems.forEach((item, index) => {
-            const offset = (index - currentIndex + totalItems) % totalItems; // Calcular desplazamiento circular
-            item.style.transition = "transform 0.8s ease, z-index 0.8s ease"; // Animación suave
+            const offset = (index - currentIndex + totalItems) % totalItems; // Desplazamiento circular
+            item.style.transition = "transform 0.8s ease, z-index 0.8s ease"; // Animación
+            item.classList.remove("active"); // Quitar clase activa de todas las tarjetas
+
             if (offset === 0) {
                 // Tarjeta central
                 item.style.transform = "translate(-50%, -50%) scale(1)";
                 item.style.zIndex = "3";
+                item.classList.add("active"); // Agregar clase activa a la tarjeta central
             } else if (offset === 1 || offset === totalItems - 1) {
                 // Laterales visibles
                 const direction = offset === 1 ? 50 : -150;
@@ -47,26 +54,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Función para mover al siguiente elemento
-    function moveToNext() {
-        currentIndex = (currentIndex + 1) % totalItems; // Avanzar al siguiente índice circularmente
+    // Navegar hacia la izquierda
+    function moveLeft() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
         updateCarousel();
+        resetAutoSlide(); // Reinicia el temporizador automático
     }
 
-    // Inicializar el carrusel
-    updateCarousel();
-    const interval = setInterval(moveToNext, animationDelay);
+    // Navegar hacia la derecha
+    function moveRight() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+        resetAutoSlide(); // Reinicia el temporizador automático
+    }
 
-    // Zoom al interactuar con una tarjeta
-    carouselItems.forEach((item) => {
-        item.addEventListener("mouseenter", () => {
-            item.style.transform += " scale(1.05)";
-        });
-        item.addEventListener("mouseleave", () => {
-            item.style.transform = item.style.transform.replace(" scale(1.05)", "");
-        });
-    });
+    // Configurar botones
+    document.getElementById("carousel-prev").addEventListener("click", moveLeft);
+    document.getElementById("carousel-next").addEventListener("click", moveRight);
+
+    // Movimiento automático del carrusel
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(moveRight, animationDelay);
+    }
+
+    // Reiniciar el movimiento automático después de interacción manual
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval); // Detener temporizador existente
+        startAutoSlide(); // Iniciar nuevo temporizador
+    }
+
+    // Inicializar carrusel y movimiento automático
+    updateCarousel();
+    startAutoSlide();
 });
+
 // Toggle the visibility of the navbar
 function toggleNavbar() {
     const sidebar = document.getElementById('sidebar');

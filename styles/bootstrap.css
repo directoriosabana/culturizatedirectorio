@@ -434,50 +434,82 @@ body {
 
 /* Carousel */
 #carousel-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 52vh;
-      background-color: #f5f5f5; /* Fondo suave */
-      overflow: hidden; /* Ocultar elementos fuera del área */
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52vh;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
 
-    .carousel {
-      display: flex;
-      position: relative;
-      width: 90%; /* Ancho relativo al contenedor */
-      perspective: 1000px; /* Perspectiva para un efecto más dinámico */
-    }
+.carousel {
+    display: flex;
+    position: relative;
+    width: 90%;
+    perspective: 1000px;
+}
 
-    .carousel-item {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-      height: 300px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: transform 0.5s ease, z-index 0.5s ease;
-      cursor: pointer;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.carousel-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, z-index 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-    /* Animación al pasar el cursor */
-    .carousel-item:hover img {
-      transform: scale(1.1);
-    }
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+
+
+    /* Botones de navegación */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carousel-prev {
+    left: 10px; /* Botón izquierdo */
+}
+
+#carousel-next {
+    right: 10px; /* Botón derecho */
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 
     /* Posiciones de las tarjetas */
     .carousel-item:nth-child(1) { transform: translate(-150%, -50%) scale(0.8); z-index: 1; }
@@ -619,29 +651,6 @@ body {
     border: none;
     transition: background 0.3s ease;
 }
-
-.btn-carousel {
-    position: absolute;
-    bottom: 10px; /* Posición en la parte inferior */
-    left: 50%;
-    transform: translateX(-50%);
-    background: #088a32;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    z-index: 10; /* Asegurar que el botón esté sobre la imagen */
-}
-
-.btn-carousel:hover {
-    background: #066923;
-    transform: translateX(-50%) scale(1.1);
-}
-
-
 
 
 .btn-call {
