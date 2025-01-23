@@ -53,6 +53,7 @@ header p {
 
 /* Contenedor del modal */
 #searchModal {
+    visibility: hidden
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
