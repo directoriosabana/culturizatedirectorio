@@ -165,7 +165,7 @@ header p {
     z-index: 999; /* Debajo del navbar */
 }
 
-/* Floating Panel Styles (No changes) */
+/* Floating Panel Galería */
 .floating-panel {
     position: fixed;
     bottom: 20px;
@@ -175,6 +175,48 @@ header p {
     gap: 15px;
     z-index: 1000;
 }
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos tarjetas por fila */
+    gap: 15px; /* Espacio entre las tarjetas */
+    margin: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen ocupe todo el espacio de la tarjeta sin distorsionarse */
+    border-radius: 5px;
+}
+
+.product-title {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-price {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 5px;
+}
+
+
+
 /* Category Card */
         .category-card {
             margin: 20px;
@@ -656,7 +698,7 @@ body {
 
 .btn-call {
     color: white;
-    background: #6c63ff;
+    background: #87859b;
     border: none;
     transition: background 0.3s ease;
 }
