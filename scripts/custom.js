@@ -32,6 +32,7 @@ if (searchModal) {
 const pagesToSearch = [
     '../business/categories/vestuario.html',
     '../business/categories/comida.html',
+    '../business/categories/comida/guadalupe.html',
     '../business/categories/belleza.html',
     '../business/categories/bebidas.html',
     '../business/categories/gimnasio.html',
@@ -106,10 +107,14 @@ async function searchIdInPages(query) {
             allElements.forEach(el => {
                 if (normalizeId(el.id).includes(normalizedQuery)) { // 🔥 Ahora busca coincidencias parciales
                     console.log(`✅ Coincidencia encontrada`);
+
+                    // Obtener el nombre del archivo actual (sin extensión .html)
+                    const fileName = page.split('/').pop().replace('.html', '');
+
                     results.push(`
                         <div class="result-item">
                             <a href="${page}#${el.id}" class="result-link" onclick="closeSearchModalFunction()">
-                                <strong>${el.id.toUpperCase()}</strong>
+                                <strong>${el.id.toUpperCase()}</strong> en ${fileName.toUpperCase()}
                             </a>
                         </div>
                     `);
