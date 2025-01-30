@@ -32,6 +32,7 @@ if (searchModal) {
 const pagesToSearch = [
     '../business/categories/vestuario.html',
     '../business/categories/comida.html',
+    '../business/categories/comida/indiana-resto-bar.html',
     '../business/categories/comida/guadalupe.html',
     '../business/categories/belleza.html',
     '../business/categories/bebidas.html',
@@ -46,6 +47,7 @@ const pagesToSearch = [
     '../business/categories/transporte.html',
     '../business/categories/deportes.html',
     '../business/categories/ferreteria.html',
+    '../business/categories/ferreteria/pintumax-colors.html',
     '../business/categories/profesionales.html',
     '../business/categories/publicos.html',
     '../business/categories.html',
